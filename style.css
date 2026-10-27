@@ -1,0 +1,58 @@
+/* Shared design tokens: change colours and fonts here */
+:root{
+  --bg:#FFF6E5; --surface:#FFFFFF; --ink:#3A0F1A; --muted:#7A5560; --line:#F0D9B5;
+  --red:#C21E3A; --gold:#E8A317; --orange:#F26B1D; --green:#1F8A5B; --brand-ink:#FFFFFF;
+  --font-head:'Yatra One',Georgia,serif; --font-body:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --radius:20px; --space:clamp(48px,8vw,92px);
+  box-sizing:border-box; color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#1E0A10; --surface:#2C1019; --ink:#FFF0D9; --muted:#D4B3A6; --line:#4A2230;
+    --red:#FF5B73; --gold:#FFC94D; --orange:#FF8A4D; --green:#4FD1A0; --brand-ink:#1E0A10; color-scheme:dark;
+  }
+}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);line-height:1.65;font-size:16.5px}
+h1,h2,h3{font-family:var(--font-head);font-weight:400;line-height:1.15;margin:0 0 .5em}
+h1{font-size:clamp(2.8rem,8vw,5rem)} h2{font-size:clamp(1.9rem,4.5vw,2.7rem)} h3{font-size:1.3rem}
+p{margin:0 0 1em;color:var(--muted)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+section{padding:var(--space) 0}
+.glow{background:linear-gradient(90deg,var(--red),var(--orange),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* Component 1: Button */
+.btn{display:inline-block;padding:14px 28px;border-radius:999px;font:600 1rem var(--font-body);text-decoration:none;border:2px solid var(--red);cursor:pointer;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn--primary{background:var(--red);color:var(--brand-ink)}
+.btn--ghost{background:transparent;color:var(--red)}
+
+/* Component 2: Section header */
+.sh{max-width:640px;margin-bottom:36px}
+.sh .eyebrow{display:inline-block;font-weight:600;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:8px}
+
+/* Component 3: Card (activities, schedule, passes) */
+.grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-top:6px solid var(--accent,var(--red));border-radius:var(--radius);padding:26px}
+.card .icon{font-size:2rem;margin-bottom:8px}
+.card p:last-child{margin-bottom:0}
+.card--featured{border-width:2px;border-top-width:6px;border-color:var(--accent,var(--red))}
+.price{font:400 2.3rem var(--font-head);color:var(--ink)}
+.card ul{padding-left:20px;color:var(--muted);margin:0 0 18px}
+.c-red{--accent:var(--red)} .c-gold{--accent:var(--gold)} .c-orange{--accent:var(--orange)} .c-green{--accent:var(--green)}
+
+nav{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);z-index:5}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font:400 1.6rem var(--font-head);text-decoration:none}
+.hero{text-align:center}
+.hero .diyas{font-size:1.8rem;letter-spacing:8px;margin-bottom:12px}
+.hero p{max-width:580px;margin:0 auto 1.4em;font-size:1.1rem}
+.hero .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.meta{display:flex;gap:10px 28px;justify-content:center;flex-wrap:wrap;margin-top:32px;font-weight:500}
+.time{font-weight:600;color:var(--accent);font-size:.9rem;margin-bottom:4px}
+.alt{background:var(--surface);border-block:1px solid var(--line)}
+.alt .card{background:var(--bg)}
+.cta-band{text-align:center}
+.notes li{margin-bottom:6px}
+footer{padding:32px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
